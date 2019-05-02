@@ -23,7 +23,7 @@
     * copiar  (cp)
     * data    (data )
 
-## Desenvolvedor
+## Desenvolvedores
  - Gabriel Neri(https://www.linkedin.com/in/nerigabriel/)
  - Julio Guillen()
  - Matheus Eduardo Marcucci()
