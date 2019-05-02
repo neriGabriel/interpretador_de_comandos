@@ -22,3 +22,8 @@
     * remover (rmdir)
     * copiar  (cp)
     * data    (data )
+
+## Desenvolvedor
+ - Gabriel Neri(https://www.linkedin.com/in/nerigabriel/)
+ - Julio Guillen()
+ - Matheus Eduardo Marcucci()
