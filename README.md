@@ -24,6 +24,6 @@
     * data    (data )
 
 ## Desenvolvedores
- - Gabriel Neri(https://www.linkedin.com/in/nerigabriel/)
- - Julio Guillen()
- - Matheus Eduardo Marcucci()
+ - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
+ - [Julio Guillen]()
+ - [Matheus Eduardo Marcucci]()
