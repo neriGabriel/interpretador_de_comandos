@@ -27,3 +27,4 @@
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
  - [Julio Guillen]()
  - [Matheus Eduardo Marcucci]()
+ - [Kaio]()
