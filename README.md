@@ -15,8 +15,8 @@
   Desenvolver um interpretador de comandos no ambiente linux.
   
   ### Estrutura
-    | - /src/
-    | - /app/
+    | - src/
+    | - app/
     | - .gitignore
     | - links de ajuda
     | - Readme.md
@@ -29,7 +29,8 @@
     * criar   (mkdir)
     * remover (rmdir)
     * copiar  (cp)
-    * data    (data )
+    * data    (data)
+    * sair    (sair)
   
 ## Desenvolvedores
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
