@@ -30,4 +30,4 @@
  - [Kaio]()
 
 ## Links de ajuda
- - [Links ou issues utilizados como ajuda no desenvolvimento](Links de ajuda.md)
+ - [Links ou issues utilizados como ajuda no desenvolvimento](https://github.com/neriGabriel/interpretador_de_comandos/blob/master/Links%20de%20ajuda.md)
