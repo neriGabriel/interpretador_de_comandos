@@ -28,3 +28,6 @@
  - [Julio Guillen]()
  - [Matheus Eduardo Marcucci]()
  - [Kaio]()
+
+## Links de ajuda
+ - [Links ou issues utilizados como ajuda no desenvolvimento](Links de ajuda.md)
