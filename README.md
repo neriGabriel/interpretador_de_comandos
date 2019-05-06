@@ -14,6 +14,14 @@
   ### Definição
   Desenvolver um interpretador de comandos no ambiente linux.
   
+  ### Estrutura
+    | - /src/
+    | - /app/
+    | - .gitignore
+    | - links de ajuda
+    | - Readme.md
+    | - compile.sh
+  
   ### Comandos
     * mudar   (cd) 
     * local   (pwd)
@@ -22,7 +30,7 @@
     * remover (rmdir)
     * copiar  (cp)
     * data    (data )
-
+  
 ## Desenvolvedores
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
  - [Julio Guillen]()
