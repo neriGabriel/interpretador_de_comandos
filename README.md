@@ -28,15 +28,24 @@
     * apagar  (rm)     [x] Kaio
     * criar   (mkdir)  [ ] Gabriel
     * remover (rmdir)  [ ] Kaio
-    * copiar  (cp)     [ ] Gabriel
+    * copiar  (cp)     [x] Gabriel
     * data    (date)   [ ] Julio/Marccuci
-    * sair    (sair)   [x] Gabriel
+    * sair    (exit)   [x] Gabriel
+    * listar  (ls)     [x] Gabriel
+    * dev     ( - )    [x] Gabriel
+    * arquivo (touch)  [x] Gabriel
 
 ## Desenvolvedores
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
  - [Julio Guillen]()
  - [Matheus Eduardo Marcucci]()
- - [Kaio]()
+ - [Kaio](https://github.com/MisterKaiou)
+
+## Como executar
+ - Baixe/Clone este repositório
+ - "Navege" ate o diretorio do repositório
+ - Execute o arquivo compile =  "./compile.sh"
+ - Seja feliz
 
 ## Links de ajuda
  - [Links ou issues utilizados como ajuda no desenvolvimento](https://github.com/neriGabriel/interpretador_de_comandos/blob/master/Links%20de%20ajuda.md)
