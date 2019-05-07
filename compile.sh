@@ -11,6 +11,13 @@ then
     exit "Erro ao compilar o arquivo de ajuda!"
 fi
 
+gcc ./src/apagar.c -o ./app/apagar
+$? -> pega o resultado do ultimo comando executado [ 0 = sucesso , 1 = erro]
+if [ $? -eq 1 ]
+then
+    exit "Erro ao compilar o arquivo de ajuda!"
+fi
+
 
 gcc ./src/shell.c -o ./app/shell
 if [ $? -eq 1 ]
