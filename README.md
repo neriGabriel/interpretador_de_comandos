@@ -45,7 +45,7 @@
 ## Como executar
  - Baixe/Clone este repositório
  - "Navegue" ate o diretorio do repositório
- - Execute o arquivo compile =  "./compile.sh"
+ - Execute o arquivo compile =  "./compile.sh" na raiz do projeto
  - Seja feliz
 
 ## Links de ajuda
