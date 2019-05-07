@@ -36,7 +36,7 @@
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
  - [Julio Guillen]()
  - [Matheus Eduardo Marcucci]()
- - [Kaio]()
+ - [Kaio Rauta](https://www.linkedin.com/in/kaio-rauta/)
 
 ## Links de ajuda
  - [Links ou issues utilizados como ajuda no desenvolvimento](https://github.com/neriGabriel/interpretador_de_comandos/blob/master/Links%20de%20ajuda.md)
