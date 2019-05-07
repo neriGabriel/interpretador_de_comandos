@@ -15,12 +15,13 @@
   Desenvolver um interpretador de comandos no ambiente linux.
 
   ### Estrutura
-    | - src/
     | - app/
+    | - src/
     | - .gitignore
-    | - links de ajuda
-    | - Readme.md
     | - compile.sh
+    | - links de ajuda
+    | - README.md
+    | - reset.sh
 
   ### Comandos
     * mudar   (cd)     [ ] Gabriel
@@ -44,7 +45,7 @@
 ## Como executar
  - Baixe/Clone este repositório
  - "Navegue" ate o diretorio do repositório
- - Execute o arquivo compile =  "./compile.sh"
+ - Execute o arquivo compile =  "./compile.sh" na raiz do projeto
  - Seja feliz
 
 ## Links de ajuda
