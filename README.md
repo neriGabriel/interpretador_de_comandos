@@ -15,12 +15,13 @@
   Desenvolver um interpretador de comandos no ambiente linux.
 
   ### Estrutura
-    | - src/
     | - app/
+    | - src/
     | - .gitignore
-    | - links de ajuda
-    | - Readme.md
     | - compile.sh
+    | - links de ajuda
+    | - README.md
+    | - reset.sh
 
   ### Comandos
     * mudar   (cd)     [ ] Gabriel
