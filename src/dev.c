@@ -8,7 +8,7 @@ int main (void){
 	printf("\t * Gabriel de Oliveira Neri | RA: 0040961823021\n");
   printf("\t * Julio Guillen | RA: \n");
   printf("\t * Matheus Eduardo Marcucci | RA: \n");
-  printf("\t * Kaio | RA: \n");
+	printf("\t * Kaio | RA: 0040961823037\n");
 
 	return 0;
 }
