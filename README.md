@@ -43,7 +43,7 @@
 
 ## Como executar
  - Baixe/Clone este repositório
- - "Navege" ate o diretorio do repositório
+ - "Navegue" ate o diretorio do repositório
  - Execute o arquivo compile =  "./compile.sh"
  - Seja feliz
 
