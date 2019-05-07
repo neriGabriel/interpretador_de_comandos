@@ -37,7 +37,7 @@ int main (int argc, char * argv[]){
       if(strcmp(argv[0], "ajuda") == 0) {
         pid=fork();
         if(pid==0) {
-          execlp("./ajuda", "./ajuda", argv[1], NULL);
+          execlp("./app/ajuda", "./app/ajuda", argv[1], NULL);
         }
         else wait(NULL);
         continue;

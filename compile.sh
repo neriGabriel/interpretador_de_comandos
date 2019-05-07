@@ -5,7 +5,7 @@ chmod -R 777 ./src
 chmod -R 777 ./app
 
 gcc ./src/ajuda.c -o ./app/ajuda
-# $? -> pega o resultado do ultimo comando executado [ 0 = sucesso , 1 = erro]
+$? -> pega o resultado do ultimo comando executado [ 0 = sucesso , 1 = erro]
 if [ $? -eq 1 ]
 then
     exit "Erro ao compilar o arquivo de ajuda!"
