@@ -13,7 +13,7 @@
 
   ### Definição
   Desenvolver um interpretador de comandos no ambiente linux.
-  
+
   ### Estrutura
     | - src/
     | - app/
@@ -21,17 +21,17 @@
     | - links de ajuda
     | - Readme.md
     | - compile.sh
-  
+
   ### Comandos
-    * mudar   (cd) 
-    * local   (pwd)
-    * apagar  (rm)
-    * criar   (mkdir)
-    * remover (rmdir)
-    * copiar  (cp)
-    * data    (data)
-    * sair    (sair)
-  
+    * mudar   (cd)     [ ] Gabriel
+    * local   (pwd)    [ ] Julio/Marccui  
+    * apagar  (rm)     [x] Kaio
+    * criar   (mkdir)  [ ] Gabriel
+    * remover (rmdir)  [ ] Kaio
+    * copiar  (cp)     [ ] Gabriel
+    * data    (date)   [ ] Julio/Marccuci
+    * sair    (sair)   [x] Gabriel
+
 ## Desenvolvedores
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
  - [Julio Guillen]()

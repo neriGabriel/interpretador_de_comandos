@@ -34,6 +34,13 @@ int main (int argc, char * argv[]){
       if(strcmp(argv[0], "sair") == 0) exit(0);
 
       //módulo de ajuda
-      if(strcmp(argv[0], "ajuda") == 0){}
+      if(strcmp(argv[0], "ajuda") == 0) {
+        pid=fork();
+        if(pid==0) {
+          execlp("./ajuda", "./ajuda", argv[1], NULL);
+        }
+        else wait(NULL);
+        continue;
+      }
    }
 }
