@@ -10,4 +10,5 @@ rm ./app/local;
 rm ./app/mudar;
 rm ./app/remover;
 rm ./app/dev;
+rm ./app/apagar;
 rm ./shell;
