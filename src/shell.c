@@ -7,8 +7,20 @@
 #include <errno.h>
 #include <sys/wait.h>
 
+char *token, *array[512];
+
+void makeTokens(char *input){
+   int i = 0;
+		token = strtok(input, "\n ");
+			while (token != NULL) {
+				array[i++] = token;
+				token = strtok(NULL, "\n ");
+			}
+		array[i] = NULL;
+}
+
 int main (int argc, char * argv[]){
-  char user [30], pass [30], comando[30], *arg[3];
+  char user [30], pass [30], comando[30];
   int pid;
 
   printf("\e[H\e[2J");
@@ -27,9 +39,11 @@ int main (int argc, char * argv[]){
    {
       printf("fatec> ");
       gets(comando);
+
+      makeTokens(comando);
+
+
       argv[0] = strtok(comando, "");
-      argv[1] = strtok(NULL, "");
-      argv[2] = NULL;
 
       //SAIR
       if(strcmp(argv[0], "sair") == 0) exit(0);
@@ -40,23 +54,15 @@ int main (int argc, char * argv[]){
       //módulo de ajuda
       if(strcmp(argv[0], "ajuda") == 0) {
         pid=fork();
-        if(pid==0) execlp("./app/ajuda", "./app/ajuda", argv[1], NULL);
+        if(pid==0) execvp("./app/ajuda", array);
         else wait(NULL);
         continue;
       }
 
-      //módulo de creditos
-      if(strcmp(argv[0], "dev") == 0) {
+      //módulo de apagar
+      if(strcmp(argv[0], "apagar") == 0) {
         pid=fork();
-        if(pid==0) execlp("./app/dev", "./app/dev", argv[1], NULL);
-        else wait(NULL);
-        continue;
-      }
-
-      //módulo de criar diretorios
-      if(strcmp(argv[0], "dev") == 0) {
-        pid=fork();
-        if(pid==0) execlp("./app/dev", "./app/dev", argv[1], NULL);
+        if(pid==0) execlp("./app/apagar", "./app/apagar", array, NULL);
         else wait(NULL);
         continue;
       }
@@ -64,15 +70,8 @@ int main (int argc, char * argv[]){
       //módulo de criar arquivos
       if(strcmp(argv[0], "arquivo") == 0) {
         pid=fork();
-        if(pid==0) execlp("./app/arquivo", "./app/arquivo", argv[1], NULL);
-        else wait(NULL);
-        continue;
-      }
-
-      //módulo de criar diretorios
-      if(strcmp(argv[0], "criar") == 0) {
-        pid=fork();
-        if(pid==0) execlp("./app/criar", "./app/criar", argv[1], NULL);
+        if(pid==0) execvp("./app/arquivo", array);
+        //if(pid==0) execlp("./app/arquivo", "./app/arquivo", array, NULL);
         else wait(NULL);
         continue;
       }
@@ -80,7 +79,31 @@ int main (int argc, char * argv[]){
       //módulo de copiar
       if (strcmp(argv[0], "copiar") == 0) {
         pid = fork();
-        if(pid == 0) execlp("./app/copiar", "./app/copiar", argv[1], NULL);
+        if(pid == 0) execlp("./app/copiar", "./app/copiar", array, NULL);
+        else wait(NULL);
+        continue;
+      }
+
+      //módulo de criar diretorios
+      if(strcmp(argv[0], "criar") == 0) {
+        pid=fork();
+        if(pid==0) execlp("./app/criar", "./app/criar", array, NULL);
+        else wait(NULL);
+        continue;
+      }
+
+      //módulo de criar diretorios
+      if(strcmp(argv[0], "data") == 0) {
+        pid=fork();
+        if(pid==0) execlp("./app/data", "./app/data", array, NULL);
+        else wait(NULL);
+        continue;
+      }
+
+      //módulo de creditos
+      if(strcmp(argv[0], "dev") == 0) {
+        pid=fork();
+        if(pid==0) execlp("./app/dev", "./app/dev", array, NULL);
         else wait(NULL);
         continue;
       }
@@ -88,9 +111,37 @@ int main (int argc, char * argv[]){
       //módulo de listar
       if (strcmp(argv[0], "listar") == 0) {
         pid = fork();
-        if(pid == 0) execlp("./app/listar", "./app/listar", argv[1], NULL);
+        if(pid == 0) execlp("./app/listar", "./app/listar", array, NULL);
         else wait(NULL);
         continue;
       }
+
+      //módulo de listar
+      if (strcmp(argv[0], "local") == 0) {
+        pid = fork();
+        if(pid == 0) execlp("./app/local", "./app/local", array, NULL);
+        else wait(NULL);
+        continue;
+      }
+
+      //módulo de listar
+      if (strcmp(argv[0], "mudar") == 0) {
+        pid = fork();
+        if(pid == 0) execlp("./app/local", "./app/mudar", argv[1], NULL);
+        else wait(NULL);
+        continue;
+      }
+
+
+      //módulo de remover
+      if(strcmp(argv[0], "remover") == 0) {
+        pid=fork();
+        if(pid==0) execlp("./app/remover", "./app/remover", array, NULL);
+        //if(pid==0) execvp("./app/remover", array);
+        else wait(NULL);
+        continue;
+      }
+
+
    }
 }
