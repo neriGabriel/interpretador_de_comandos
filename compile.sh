@@ -14,10 +14,9 @@ fi
 
 #= Compilando o arquivo de apagar
 gcc ./src/apagar.c -o ./app/apagar
-$? -> pega o resultado do ultimo comando executado [ 0 = sucesso , 1 = erro]
 if [ $? -eq 1 ]
 then
-    exit "Erro ao compilar o arquivo de ajuda!"
+    exit "Erro ao compilar o arquivo de apagar!"
 fi
 ##################################
 
