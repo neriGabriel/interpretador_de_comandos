@@ -1,20 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void)
+int main(int argc, char * argv[])
 {
+  if(argc < 2){
+    printf("arquivo [nome.extensão]\n");
+    return 0;
+  }
 
-  char nome[256];
   FILE *criarArquivo;
-  printf("\e[H\e[2J");
-
-  printf("Digite o nome do arquivo: ");
-  gets(nome);
-
-  criarArquivo = fopen(nome, "a");
+  criarArquivo = fopen(argv[1], "a");
   fclose(criarArquivo);
   if(criarArquivo == NULL) printf("Erro ao criar arquivo!\n");
   else printf("O arquivo foi criado com sucesso!\n");
 
-  return(0);
+  return 0;
 }
