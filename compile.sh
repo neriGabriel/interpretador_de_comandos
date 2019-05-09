@@ -10,8 +10,6 @@ fi
 
 ./reset.sh
 
-
-
 chmod -R 777 ./src
 chmod -R 777 ./app
 
