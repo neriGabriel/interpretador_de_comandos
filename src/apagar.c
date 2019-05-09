@@ -45,7 +45,7 @@ int main()
 
         error = remove(nomeArquivo);
 
-        else
+        if(error == 1)
         {
             printf("Falha ao deletar arquivo!\n");
             perror("Erro");
