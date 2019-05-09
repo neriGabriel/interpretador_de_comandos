@@ -56,11 +56,6 @@ int main()
         {
             exit(1);
         }
-
-        if ((error = rmdir(local)) == 0)
-        {
-            printf("Diretório excluido com sucesso!\n");
-        }
         else
         {
             perror("Erro: ");

@@ -2,3 +2,16 @@
 .vscode/ipch/767195ed18707fb8/mmap_address.bin
 .vscode/ipch/767195ed18707fb8/APAGAR.ipch
 *.ipch
+./app/ajuda;
+./app/arquivo;
+./app/copiar;
+./app/criar;
+./app/data;
+./app/listar;
+./app/local;
+./app/mudar;
+./app/remover;
+./app/dev;
+./app/apagar;
+./app/quem;
+./shell;

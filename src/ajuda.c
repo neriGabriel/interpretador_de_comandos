@@ -13,6 +13,7 @@ int main() {
   printf("\t\t ==== mudar   = cd      ==== \n");
   printf("\t\t ==== usuario = who     ==== \n");
   printf("\t\t ==== remover = rmdir   ==== \n");
+  printf("\t\t ==== ./      = ./      ==== \n");
   printf("\t\t =========================== \n");
   return 0;
 }

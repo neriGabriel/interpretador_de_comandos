@@ -45,9 +45,7 @@ int main (int argc, char * argv[]) {
 
   while( ( ch = fgetc(ori) ) != EOF )
       fputc(ch, dest);
-
-   printf("Arquivo Copiado com sucesso\n");
-
+      
    fclose(ori);
    fclose(dest);
 }
