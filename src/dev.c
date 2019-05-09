@@ -4,7 +4,7 @@
 int main (void){
 
 	printf("\t ================== Creditos ==================\n");
-	printf("\t = - Desenvolvedores -                      ===\n");
+	printf("\t = - Desenvolvedores -           - RA -       =\n");
 	printf("\t = Gabriel de Oliveira    | RA: 0040961823021 =\n");
   	printf("\t = Julio Guillen          | RA:               =\n");
   	printf("\t = Matheus Marcucci       | RA:               =\n");
