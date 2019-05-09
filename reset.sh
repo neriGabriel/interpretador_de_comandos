@@ -11,4 +11,5 @@ rm ./app/mudar;
 rm ./app/remover;
 rm ./app/dev;
 rm ./app/apagar;
+rm ./app/quem;
 rm ./shell;
