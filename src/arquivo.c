@@ -12,7 +12,6 @@ int main(int argc, char * argv[])
   criarArquivo = fopen(argv[1], "a");
   fclose(criarArquivo);
   if(criarArquivo == NULL) printf("Erro ao criar arquivo!\n");
-  else printf("O arquivo foi criado com sucesso!\n");
-
+  
   return 0;
 }
