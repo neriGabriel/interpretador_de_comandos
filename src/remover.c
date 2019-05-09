@@ -56,6 +56,9 @@ int main()
         {
             exit(1);
         }
+        if ((error = rmdir(local)) == 0)
+        {
+        }
         else
         {
             perror("Erro: ");
