@@ -14,8 +14,7 @@ int main(int argc, char * argv[]){
   }
   status = mkdir(argv[1], S_IRWXU | S_IRWXG | S_IROTH | S_IXOTH);
 
-  if(status == 0) printf("Diretorio criado com sucesso! \n");
-  else printf("Erro ao criar diretorio \n");
+  if(status == 1) printf("Erro ao criar diretorio \n");
 
   return status;
 }
