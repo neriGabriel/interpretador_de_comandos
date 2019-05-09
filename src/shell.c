@@ -46,10 +46,13 @@ int main (int argc, char * argv[]){
       argv[0] = strtok(comando, "");
 
       //SAIR
-      if(strcmp(argv[0], "sair") == 0) exit(0);
+      if(strcmp(argv[0], "sair") == 0) {
+        printf("Até mais =)\n");
+        exit(0);
+      }
 
       //LIMPAR TELA
-      if(strcmp(argv[0], "limpar") == 0) printf("\e[H\e[2J");
+      if(strcmp(argv[0], "limpar") == 0 || strcmp(argv[0], "clear") == 0) printf("\e[H\e[2J");
 
       //módulo de ajuda
       if(strcmp(argv[0], "ajuda") == 0) {
@@ -79,7 +82,8 @@ int main (int argc, char * argv[]){
       //módulo de copiar
       if (strcmp(argv[0], "copiar") == 0) {
         pid = fork();
-        if(pid == 0) execlp("./app/copiar", "./app/copiar", array, NULL);
+        if(pid==0) execvp("./app/copiar", array);
+        //if(pid == 0) execlp("./app/copiar", "./app/copiar", array, NULL);
         else wait(NULL);
         continue;
       }
@@ -87,7 +91,8 @@ int main (int argc, char * argv[]){
       //módulo de criar diretorios
       if(strcmp(argv[0], "criar") == 0) {
         pid=fork();
-        if(pid==0) execlp("./app/criar", "./app/criar", array, NULL);
+        if(pid==0) execvp("./app/criar", array);
+        //if(pid==0) execlp("./app/criar", "./app/criar", array, NULL);
         else wait(NULL);
         continue;
       }
@@ -95,7 +100,8 @@ int main (int argc, char * argv[]){
       //módulo de criar diretorios
       if(strcmp(argv[0], "data") == 0) {
         pid=fork();
-        if(pid==0) execlp("./app/data", "./app/data", array, NULL);
+        //if(pid==0) execlp("./app/data", "./app/data", array, NULL);
+        if(pid==0) execvp("./app/data", array);
         else wait(NULL);
         continue;
       }
@@ -111,7 +117,8 @@ int main (int argc, char * argv[]){
       //módulo de listar
       if (strcmp(argv[0], "listar") == 0) {
         pid = fork();
-        if(pid == 0) execlp("./app/listar", "./app/listar", array, NULL);
+        if(pid==0) execvp("./app/listar", array);
+        //if(pid == 0) execlp("./app/listar", "./app/listar", array, NULL);
         else wait(NULL);
         continue;
       }
@@ -127,7 +134,16 @@ int main (int argc, char * argv[]){
       //módulo de listar
       if (strcmp(argv[0], "mudar") == 0) {
         pid = fork();
-        if(pid == 0) execlp("./app/local", "./app/mudar", argv[1], NULL);
+        if(pid==0) execvp("./app/mudar", array);
+        //if(pid == 0) execlp("./app/local", "./app/mudar", argv[1], NULL);
+        else wait(NULL);
+        continue;
+      }
+
+      //módulo de listar
+      if (strcmp(argv[0], "usuario") == 0) {
+        pid = fork();
+        if(pid==0) execvp("./app/quem", array);
         else wait(NULL);
         continue;
       }
