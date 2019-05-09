@@ -11,6 +11,7 @@ int main() {
   printf("\t\t ==== listar  = ls      ==== \n");
   printf("\t\t ==== local   = pwd     ==== \n");
   printf("\t\t ==== mudar   = cd      ==== \n");
+  printf("\t\t ==== usuario = who     ==== \n");
   printf("\t\t ==== remover = rmdir   ==== \n");
   printf("\t\t =========================== \n");
   return 0;
