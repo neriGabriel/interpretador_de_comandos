@@ -35,7 +35,7 @@
     * listar  (ls)     [x] Gabriel
     * dev     ( - )    [x] Gabriel
     * arquivo (touch)  [x] Gabriel
-    * quem    (who)    [x] Gabriel
+    * usuario (who)    [x] Gabriel
 
 ## Desenvolvedores
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
