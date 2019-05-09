@@ -1,7 +1,16 @@
 #!/usr/bin/env bash
 echo "COMPILANDO ARQUIVOS...."
 
+if [ -d ./app ]
+then
+ echo "DIRETORIO APP JA CRIADO"
+else
+  mkdir ./app 
+fi
+
 ./reset.sh
+
+
 
 chmod -R 777 ./src
 chmod -R 777 ./app
