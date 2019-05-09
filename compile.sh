@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 echo "COMPILANDO ARQUIVOS...."
 
+#=Verifica se a pasta "app" existe e, se não, cria.
+app=$(./app/)
+if [ ! -d "$app" ]
+then
+    mkdir ./app
+fi
+
 chmod -R 777 ./src
 chmod -R 777 ./app
 

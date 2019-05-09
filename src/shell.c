@@ -6,6 +6,11 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <sys/wait.h>
+#include <locale.h>
+
+#define PASS_SIZE 30
+#define USER_SIZE 30
+#define COMANDO_SIZE 30
 
 char *token, *array[512];
 
@@ -19,21 +24,59 @@ void makeTokens(char *input){
 		array[i] = NULL;
 }
 
+void getCredentials(char user[USER_SIZE], char pass[PASS_SIZE])
+{
+  int SIZE = 0;
+
+  printf("Entre com o usuário: ");
+  fgets(user, USER_SIZE, stdin);
+  fflush(stdin);
+
+  SIZE = strlen(user) - 1;
+
+  if (user[SIZE] == '\n')
+      user[SIZE] = '\0';
+
+  printf("Entre com a senha: ");
+  fgets(pass, PASS_SIZE, stdin);
+  fflush(stdin);
+
+  SIZE = strlen(pass);
+
+  if (pass[SIZE] == '\n')
+      pass[SIZE] = '\0';
+
+}
+
 int main (int argc, char * argv[]){
-  char user [30], pass [30], comando[30];
-  int pid;
+  char user [USER_SIZE], pass [PASS_SIZE], comando[COMANDO_SIZE];
+  int pid, i = 0;
+
+  setlocale (LC_ALL, "Portuguese");
 
   printf("\e[H\e[2J");
-  printf("Entre com o usuario: ");
-  gets(user);
-  printf("Entre com a senha: ");
-  gets(pass);
 
-   if(strcmp(user, "root") != 0 || strcmp(pass, "fatecso") != 0 )
-   {
-     printf("Usuario ou senha invalidos \n");
-     exit(0);
-   }
+  for(i = 0; i <= 2; i++)
+  {
+
+    getCredentials(user, pass);
+
+    printf("%s\n%s", user, pass);
+
+    if(i == 2)
+    {
+      printf("Excedeu a quantidade de tentativas\n\n");
+      exit(0);
+    }
+    else if (strcmp(user, "root") != 0 || strcmp(pass, "fatecso") != 0 )
+    {
+      printf("Usuário ou senha inválidos\n\n");
+    }
+    else
+    {
+      continue;
+    }
+  }
 
    for(;;)
    {
