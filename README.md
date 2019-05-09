@@ -25,11 +25,11 @@
     | - reset.sh
 
   ### Comandos
-    * mudar   (cd)     [x] Gabriel
-    * local   (pwd)    [x] Julio/Marccui  
+    * mudar   (cd)     [ ] Gabriel
+    * local   (pwd)    [ ] Julio/Marccui  
     * apagar  (rm)     [x] Kaio
-    * criar   (mkdir)  [x] Gabriel
-    * remover (rmdir)  [x] Kaio
+    * criar   (mkdir)  [ ] Gabriel
+    * remover (rmdir)  [ ] Kaio
     * copiar  (cp)     [x] Gabriel
     * data    (date)   [ ] Julio/Marccuci
     * sair    (exit)   [x] Gabriel
