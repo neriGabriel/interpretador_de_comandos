@@ -34,7 +34,7 @@ int main()
     {
         error = 0;
         tamanhoNome = 0;
-        printf("\nDigite exit a qualquer momento para sair...\n");
+        printf("Digite exit a qualquer momento para sair...\n");
         printf("Qual pasta gostaria de apagar: ");
         fflush(stdin);
         fgets(local, PATH_SIZE, stdin);

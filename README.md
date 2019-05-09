@@ -19,22 +19,24 @@
     | - src/
     | - .gitignore
     | - compile.sh
+    | - comple.bat
     | - links de ajuda
     | - README.md
     | - reset.sh
 
   ### Comandos
-    * mudar   (cd)     [ ] Gabriel
-    * local   (pwd)    [ ] Julio/Marccui  
+    * mudar   (cd)     [x] Gabriel
+    * local   (pwd)    [x] Julio/Marccui  
     * apagar  (rm)     [x] Kaio
-    * criar   (mkdir)  [ ] Gabriel
-    * remover (rmdir)  [ ] Kaio
+    * criar   (mkdir)  [x] Gabriel
+    * remover (rmdir)  [x] Kaio
     * copiar  (cp)     [x] Gabriel
     * data    (date)   [ ] Julio/Marccuci
     * sair    (exit)   [x] Gabriel
     * listar  (ls)     [x] Gabriel
     * dev     ( - )    [x] Gabriel
     * arquivo (touch)  [x] Gabriel
+    * quem    (who)    [x] Gabriel
 
 ## Desenvolvedores
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)

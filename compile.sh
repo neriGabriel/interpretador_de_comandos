@@ -8,6 +8,8 @@ then
     mkdir ./app
 fi
 
+./reset.sh
+
 chmod -R 777 ./src
 chmod -R 777 ./app
 
@@ -24,6 +26,14 @@ gcc ./src/apagar.c -o ./app/apagar
 if [ $? -eq 1 ]
 then
     exit "Erro ao compilar o arquivo de apagar!"
+fi
+##################################
+
+#= Compilando o arquivo de apagar
+gcc ./src/quem.c -o ./app/quem
+if [ $? -eq 1 ]
+then
+    exit "Erro ao compilar o arquivo de quem!"
 fi
 ##################################
 
