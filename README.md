@@ -31,7 +31,7 @@
     * criar   (mkdir)  [x] Gabriel
     * remover (rmdir)  [x] Kaio
     * copiar  (cp)     [x] Gabriel
-    * data    (date)   [ ] Julio/Marccuci
+    * data    (date)   [x] Julio/Marccuci
     * sair    (exit)   [x] Gabriel
     * listar  (ls)     [x] Gabriel
     * dev     ( - )    [x] Gabriel
