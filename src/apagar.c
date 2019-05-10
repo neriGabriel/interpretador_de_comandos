@@ -9,6 +9,12 @@ int main(int argc, char *argv[])
 {
     int error, counter;
 
+    if (argc < 2)
+    {
+        printf("apagar [nome ...]\n");
+        return 0;
+    }
+
     for(counter = 1; counter < argc; counter++)
     {
         error = 0;

@@ -7,7 +7,7 @@
 int main(int argc, char * argv[]){
 
   if(argc < 2){
-    printf("mudar [nome]\n");
+    printf("mudar [nome ...]\n");
     return 0;
   }
 

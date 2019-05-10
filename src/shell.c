@@ -11,6 +11,8 @@
 #define PASS_SIZE 30
 #define USER_SIZE 30
 #define COMANDO_SIZE 30
+#define HOST_SIZE 1024
+#define PATH_SIZE 260
 
 char *token, *array[512];
 
@@ -78,10 +80,31 @@ char getCredentials(char user[USER_SIZE], char pass[PASS_SIZE])
     return user, pass;
 }
 
+char getHostName(char hostName[HOST_SIZE])
+{
+    
+    gethostname(hostName, HOST_SIZE);
+    
+    return hostName;
+}
+
+char getDir(char initLocation[PATH_SIZE], char workingLocation[PATH_SIZE])
+{
+    *workingLocation = getcwd(workingLocation, PATH_SIZE);
+
+    if (strcmp(initLocation, workingLocation) == 0)
+    {
+        workingLocation = "";
+    }
+
+    return workingLocation;
+}
+
 int main (int argc, char * argv[])
 {
 
-    char user [USER_SIZE], pass [PASS_SIZE], comando[COMANDO_SIZE];
+    char user [USER_SIZE], pass [PASS_SIZE], comando[COMANDO_SIZE], hostName[HOST_SIZE];
+    char initLocation[PATH_SIZE], workingLocation[PATH_SIZE];
     int pid, i = 0;
 
     setlocale (LC_ALL, "Portuguese");
@@ -92,11 +115,15 @@ int main (int argc, char * argv[])
 
     limpaTela();
 
+    getHostName(hostName);
+    *initLocation = getcwd(initLocation, PATH_SIZE);
+
     printf("Seja bem vindo %s!\n", user);
 
     for(;;)
     {
-        printf("fatec> ");
+        getDir(initLocation, workingLocation);
+        printf("%s@%s:~%s$ ", user, hostName, workingLocation);
         fgets(comando, COMANDO_SIZE, stdin);
 
         makeTokens(comando);
@@ -202,7 +229,7 @@ int main (int argc, char * argv[])
         else if(strcmp(argv[0], "remover") == 0)
         {
             pid=fork();
-            if(pid==0) execlp("./app/remover", "./app/remover", array, NULL);
+            if(pid==0) execvp("./app/remover", array);
             else wait(NULL);
             continue;
         }
