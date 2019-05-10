@@ -33,12 +33,10 @@ void makeTokens(char *input)
 
 char getCredentials(char user[USER_SIZE], char pass[PASS_SIZE])
 {
-    int SIZE = 0, i = 0, correctName, correctPass;
+    int SIZE = 0, i = 0;
 
     for(i = 0; i <= 2; i++)
     {
-
-        correctName = 0; correctPass = 0;
 
         printf("Entre com o usuário: ");
         fgets(user, USER_SIZE, stdin);
@@ -51,10 +49,6 @@ char getCredentials(char user[USER_SIZE], char pass[PASS_SIZE])
             user[SIZE] = '\0';
         }
 
-        correctName = strcmp(user, "root");
-
-        printf ("O nome está %i\n", correctName);
-
         printf("Entre com a senha: ");
         fgets(pass, PASS_SIZE, stdin);
         fflush(stdin);
@@ -66,18 +60,12 @@ char getCredentials(char user[USER_SIZE], char pass[PASS_SIZE])
             pass[SIZE] = '\0';
         }
 
-        correctPass = strcmp(pass, "fatecso");
-
-        printf ("A senha está %i\n", correctPass);
-
-        printf("%s\n%s", user, pass);
-
         if(i == 2)
         {
             printf("Excedeu a quantidade de tentativas\n\n");
             exit(0);
         }
-        if (correctName != 0 || correctPass != 0)
+        if (strcmp(user, "root") != 0 || strcmp(pass, "fatecso") != 0)
         {
             printf("Usuário ou senha inválidos\n\n");
         }
@@ -121,7 +109,7 @@ int main (int argc, char * argv[])
             exit(0);
         }
 
-        else if(strcmp(argv[0], "limpar") == 0 || strcmp(argv[0], "clear") == 0) printf("\e[H\e[2J");
+        else if(strcmp(argv[0], "limpar") == 0 || strcmp(argv[0], "clear") == 0) limpaTela();
 
         else if(strcmp(argv[0], "ajuda") == 0)
         {
@@ -134,7 +122,7 @@ int main (int argc, char * argv[])
         else if(strcmp(argv[0], "apagar") == 0)
         {
             pid=fork();
-            if(pid==0) execlp("./app/apagar", "./app/apagar", array, NULL);
+            if(pid==0) execvp("./app/apagar",  array);
             else wait(NULL);
             continue;
         }
