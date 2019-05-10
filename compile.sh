@@ -1,122 +1,51 @@
 #!/usr/bin/env bash
 echo "COMPILANDO ARQUIVOS...."
 
-#=Verifica se a pasta "app" existe e, se não, cria.
-app=$(./app/)
-if [ ! -d "$app" ]
-then
-    mkdir ./app
-fi
+[[ -d ./app ]] && echo "DIRETORIO APP JA CRIADO" ||   mkdir ./app
 
 ./reset.sh
 
-chmod -R 777 ./src
-chmod -R 777 ./app
+[[ -d ./src ]] && chmod -R 777 ./src
+[[ -d ./app ]] && chmod -R 777 ./app
 
-#= Compilando o arquivo de ajuda
 gcc ./src/ajuda.c -o ./app/ajuda
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de ajuda!"
-fi
-##################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de ajuda!"
 
-#= Compilando o arquivo de apagar
 gcc ./src/apagar.c -o ./app/apagar
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de apagar!"
-fi
-##################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de apagar!"
 
-#= Compilando o arquivo de apagar
 gcc ./src/quem.c -o ./app/quem
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de quem!"
-fi
-##################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de usuario!"
 
-#= Compilando o arquivo de copiar
 gcc ./src/copiar.c -o ./app/copiar
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de copiar!"
-fi
-##################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de copiar!"
 
-#= Compilando o arquivo de files
 gcc ./src/arquivo.c -o ./app/arquivo
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de files!"
-fi
-##################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de arquivo!"
 
-#= Compilando o arquivo de créditos
 gcc ./src/dev.c -o ./app/dev
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de créditos!"
-fi
-##################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de creditos!"
 
-#= Compilando o arquivo de listar
 gcc ./src/listar.c -o ./app/listar
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de listar!"
-fi
-##################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de listar!"
 
-#= Compilando o arquivo de criar
 gcc ./src/criar.c -o ./app/criar
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de criar!"
-fi
-###################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de criar!"
 
-
-#= Compilando o arquivo de data
 gcc ./src/data.c -o ./app/data
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de data!"
-fi
-################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de data!"
 
-#= Compilando o arquivo de local
 gcc ./src/local.c -o ./app/local
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de local!"
-fi
-#################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de local!"
 
-#= Compilando o arquivo de mudar
 gcc ./src/mudar.c -o ./app/mudar
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de mudar!"
-fi
-##################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de mudar!"
 
-#= Compilando o arquivo de remover
 gcc ./src/remover.c -o ./app/remover
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de remover!"
-fi
-###################################
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo de remover!"
 
-#= Compilando o arquivo principal
-gcc ./src/shell.c -o shell
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo principal!"
-fi
-#####################################
+gcc ./src/shell.c -o ./shell
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo principal!"
 
 chmod -R 777 ./app
 echo "ARQUIVOS COMPILADOS COM SUCESSO!"
