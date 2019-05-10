@@ -25,18 +25,18 @@
     | - reset.sh
 
   ### Comandos
-    * mudar   (cd)     [x] Gabriel
-    * local   (pwd)    [x] Julio/Marccui  
-    * apagar  (rm)     [x] Kaio
-    * criar   (mkdir)  [x] Gabriel
-    * remover (rmdir)  [x] Kaio
-    * copiar  (cp)     [x] Gabriel
-    * data    (date)   [x] Julio/Marccuci
-    * sair    (exit)   [x] Gabriel
-    * listar  (ls)     [x] Gabriel
-    * dev     ( - )    [x] Gabriel
-    * arquivo (touch)  [x] Gabriel
-    * quem    (who)    [x] Gabriel
+    * mudar   (cd)     
+    * local   (pwd)    
+    * apagar  (rm)     
+    * criar   (mkdir)  
+    * remover (rmdir) 
+    * copiar  (cp)     
+    * data    (date)   
+    * sair    (exit)   
+    * listar  (ls)     
+    * dev     ( - )    
+    * arquivo (touch)  
+    * quem    (who)    
 
 ## Desenvolvedores
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
