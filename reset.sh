@@ -1,66 +1,17 @@
+#!/usr/bin/env bash
 chmod -R 777 ./reset.sh
 
 echo -e "limpando CACHE de arquivos...";
 
-if [ -f ./app/ajuda ]
-then
-  rm ./app/ajuda;
-fi
+arquivos=(ajuda apagar arquivo copiar criar data dev listar local mudar quem remover)
 
-if [ -f ./app/arquivo ]
-then
-  rm ./app/arquivo;
-fi
-
-if [ -f ./app/copiar ]
-then
-  rm ./app/copiar;
-fi
-
-if [ -f ./app/criar ]
-then
-  rm ./app/criar;
-fi
-
-if [ -f ./app/data ]
-then
-  rm ./app/data;
-fi
-
-if [ -f ./app/listar ]
-then
-  rm ./app/listar;
-fi
-
-if [ -f ./app/local ]
-then
-  rm ./app/local;
-fi
-
-if [ -f ./app/mudar ]
-then
-  rm ./app/mudar;
-fi
-
-if [ -f ./app/remover ]
-then
-  rm ./app/remover;
-fi
-
-if [ -f ./app/dev ]
-then
-  rm ./app/dev;
-fi
-
-if [ -f ./app/apagar ]
-then
-  rm ./app/apagar;
-fi
-
-if [ -f ./app/quem ]
-then
-  rm ./app/quem;
-fi
+for i in "${arquivos[@]}"
+do
+  if [ -f ./app/$i ]
+  then
+    rm ./app/$i;
+  fi
+done
 
 if [ -f ./shell ]
 then
