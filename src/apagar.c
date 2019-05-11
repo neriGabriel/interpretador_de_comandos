@@ -1,6 +1,4 @@
-#include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 
 #define TAM 255
@@ -24,7 +22,7 @@ int main(int argc, char *argv[])
         if (error != 0)
         {
             printf("Falha ao deletar arquivo %s!\n", argv[counter]);
-            perror("Erro");
+            perror("Erro: ");
         }
     }
 

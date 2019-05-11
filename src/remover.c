@@ -15,10 +15,14 @@ int main(int argc, char *argv[])
 
     for(counter = 1; counter < argc; counter++)
     {
-        if ((error = rmdir(argv[counter])) != 0)
+        error = 0;
+
+        error = rmdir(argv[counter]);
+
+        if (error != 0)
         {
+            printf("Falha ao deletar arquivo %s!\n", argv[counter]);
             perror("Erro: ");
-            printf("\n");
         }
     }
 

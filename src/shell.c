@@ -80,31 +80,10 @@ char getCredentials(char user[USER_SIZE], char pass[PASS_SIZE])
     return user, pass;
 }
 
-char getHostName(char hostName[HOST_SIZE])
-{
-    
-    gethostname(hostName, HOST_SIZE);
-    
-    return hostName;
-}
-
-char getDir(char initLocation[PATH_SIZE], char workingLocation[PATH_SIZE])
-{
-    *workingLocation = getcwd(workingLocation, PATH_SIZE);
-
-    if (strcmp(initLocation, workingLocation) == 0)
-    {
-        workingLocation = "";
-    }
-
-    return workingLocation;
-}
-
 int main (int argc, char * argv[])
 {
 
     char user [USER_SIZE], pass [PASS_SIZE], comando[COMANDO_SIZE], hostName[HOST_SIZE];
-    char initLocation[PATH_SIZE], workingLocation[PATH_SIZE];
     int pid, i = 0;
 
     setlocale (LC_ALL, "Portuguese");
@@ -115,15 +94,11 @@ int main (int argc, char * argv[])
 
     limpaTela();
 
-    getHostName(hostName);
-    *initLocation = getcwd(initLocation, PATH_SIZE);
-
     printf("Seja bem vindo %s!\n", user);
 
     for(;;)
     {
-        getDir(initLocation, workingLocation);
-        printf("%s@%s:~%s$ ", user, hostName, workingLocation);
+        printf("FATEC>");
         fgets(comando, COMANDO_SIZE, stdin);
 
         makeTokens(comando);
@@ -149,11 +124,12 @@ int main (int argc, char * argv[])
         else if(strcmp(argv[0], "apagar") == 0)
         {
             pid=fork();
-            if(pid==0) execvp("./app/apagar",  array);
+            if(pid==0) execvp("./app/apagar", array);
             else wait(NULL);
             continue;
         }
 
+        //TODO Corrigir bug que, apesar de criar mais de um arquivo conforme solicitado, mostra "comando: '\n' não encontrado" onde '\n' é um enter entre os nomes dos arquivos por criar. 
         else if(strcmp(argv[0], "arquivo") == 0)
         {
             pid=fork();
