@@ -83,7 +83,7 @@ char getCredentials(char user[USER_SIZE], char pass[PASS_SIZE])
 int main (int argc, char * argv[])
 {
 
-    char user [USER_SIZE], pass [PASS_SIZE], comando[COMANDO_SIZE], hostName[HOST_SIZE];
+    char user [USER_SIZE], pass [PASS_SIZE], comando[255], hostName[HOST_SIZE];
     int pid, i = 0;
 
     setlocale (LC_ALL, "Portuguese");
@@ -101,7 +101,9 @@ int main (int argc, char * argv[])
     for(;;)
     {
         printf("FATEC>");
+        //====== GETS PELO AMOR DE GEOVA
         gets(comando);
+        //===============================
 
         makeTokens(comando);
 
