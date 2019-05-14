@@ -6,91 +6,218 @@
 #include <fcntl.h>
 #include <errno.h>
 #include <sys/wait.h>
+#include <locale.h>
 
-int main (int argc, char * argv[]){
-  char user [30], pass [30], comando[30], *arg[3];
-  int pid;
+#define PASS_SIZE 30
+#define USER_SIZE 30
+#define COMANDO_SIZE 30
+#define HOST_SIZE 1024
+#define PATH_SIZE 260
 
-  printf("\e[H\e[2J");
-  printf("Entre com o usuario: ");
-  gets(user);
-  printf("Entre com a senha: ");
-  gets(pass);
+char *array[512];
 
-   if(strcmp(user, "root") != 0 || strcmp(pass, "fatecso") != 0 )
-   {
-     printf("Usuario ou senha invalidos \n");
-     exit(0);
-   }
+void limpaTela()
+{
+    printf("\e[H\e[2J");
+}
 
-   for(;;)
-   {
-      printf("fatec> ");
-      gets(comando);
-      argv[0] = strtok(comando, "");
-      argv[1] = strtok(NULL, "");
-      argv[2] = NULL;
+void makeTokens(char *input)
+{
+    int i = 0;
+    char *token = strtok(input, " ");
+    while (token != NULL)
+    {
+        array[i++] = token;
+        token = strtok(NULL, "\n ");
+    }
+    array[i] = NULL;
+}
 
-      //SAIR
-      if(strcmp(argv[0], "sair") == 0) exit(0);
+char getCredentials(char user[USER_SIZE], char pass[PASS_SIZE])
+{
+    int SIZE = 0, i = 0;
 
-      //LIMPAR TELA
-      if(strcmp(argv[0], "limpar") == 0) printf("\e[H\e[2J");
+    for(i = 0; i <= 2; i++)
+    {
 
-      //módulo de ajuda
-      if(strcmp(argv[0], "ajuda") == 0) {
-        pid=fork();
-        if(pid==0) execlp("./app/ajuda", "./app/ajuda", argv[1], NULL);
-        else wait(NULL);
-        continue;
-      }
+        printf("Entre com o usuário: ");
+        fgets(user, USER_SIZE, stdin);
+        fflush(stdin);
 
-      //módulo de creditos
-      if(strcmp(argv[0], "dev") == 0) {
-        pid=fork();
-        if(pid==0) execlp("./app/dev", "./app/dev", argv[1], NULL);
-        else wait(NULL);
-        continue;
-      }
+        SIZE = strlen(user) - 1;
 
-      //módulo de criar diretorios
-      if(strcmp(argv[0], "dev") == 0) {
-        pid=fork();
-        if(pid==0) execlp("./app/dev", "./app/dev", argv[1], NULL);
-        else wait(NULL);
-        continue;
-      }
+        if (user[SIZE] == '\n')
+        {
+            user[SIZE] = '\0';
+        }
 
-      //módulo de criar arquivos
-      if(strcmp(argv[0], "arquivo") == 0) {
-        pid=fork();
-        if(pid==0) execlp("./app/arquivo", "./app/arquivo", argv[1], NULL);
-        else wait(NULL);
-        continue;
-      }
+        printf("Entre com a senha: ");
+        fgets(pass, PASS_SIZE, stdin);
+        fflush(stdin);
 
-      //módulo de criar diretorios
-      if(strcmp(argv[0], "criar") == 0) {
-        pid=fork();
-        if(pid==0) execlp("./app/criar", "./app/criar", argv[1], NULL);
-        else wait(NULL);
-        continue;
-      }
+        SIZE = strlen(pass) - 1;
 
-      //módulo de copiar
-      if (strcmp(argv[0], "copiar") == 0) {
-        pid = fork();
-        if(pid == 0) execlp("./app/copiar", "./app/copiar", argv[1], NULL);
-        else wait(NULL);
-        continue;
-      }
+        if (pass[SIZE] == '\n')
+        {
+            pass[SIZE] = '\0';
+        }
 
-      //módulo de listar
-      if (strcmp(argv[0], "listar") == 0) {
-        pid = fork();
-        if(pid == 0) execlp("./app/listar", "./app/listar", argv[1], NULL);
-        else wait(NULL);
-        continue;
-      }
-   }
+        if(i == 2)
+        {
+            printf("Excedeu a quantidade de tentativas\n\n");
+            exit(0);
+        }
+        if (strcmp(user, "root") != 0 || strcmp(pass, "fatecso") != 0)
+        {
+            printf("Usuário ou senha inválidos\n\n");
+        }
+        else
+        {
+            break;
+        }
+    }
+
+    return user, pass;
+}
+
+int main (int argc, char * argv[])
+{
+
+    char user [USER_SIZE], pass [PASS_SIZE], comando[COMANDO_SIZE], hostName[HOST_SIZE];
+    int pid, i = 0;
+
+    setlocale (LC_ALL, "Portuguese");
+
+    limpaTela();
+
+    getCredentials(user, pass);
+
+    limpaTela();
+
+    printf("Seja bem vindo %s!\n", user);
+
+    fflush(stdin);
+
+    for(;;)
+    {
+        printf("FATEC>");
+        gets(comando);
+
+        makeTokens(comando);
+
+        argv[0] = strtok(comando, "");
+
+        if(strcmp(argv[0], "sair") == 0)
+        {
+            printf("Até mais %s =)\n", user);
+            exit(0);
+        }
+
+        else if(strcmp(argv[0], "limpar") == 0 || strcmp(argv[0], "clear") == 0) limpaTela();
+
+        else if(strcmp(argv[0], "ajuda") == 0)
+        {
+            pid=fork();
+            if(pid==0) execvp("./app/ajuda", array);
+            else wait(NULL);
+            continue;
+        }
+
+        else if(strcmp(argv[0], "apagar") == 0)
+        {
+            pid=fork();
+            if(pid==0) execvp("./app/apagar", array);
+            else wait(NULL);
+            continue;
+        }
+
+        //TODO Corrigir bug que, apesar de criar mais de um arquivo conforme solicitado, mostra "comando: '\n' não encontrado" onde '\n' é um enter entre os nomes dos arquivos por criar.
+        else if(strcmp(argv[0], "arquivo") == 0)
+        {
+            pid=fork();
+            if(pid==0) execvp("./app/arquivo", array);
+            else wait(NULL);
+            continue;
+        }
+
+        else if (strcmp(argv[0], "copiar") == 0)
+        {
+            pid = fork();
+            if(pid==0) execvp("./app/copiar", array);
+            else wait(NULL);
+            continue;
+        }
+
+        else if(strcmp(argv[0], "criar") == 0)
+        {
+            pid=fork();
+            if(pid==0) execvp("./app/criar", array);
+            else wait(NULL);
+            continue;
+        }
+
+        else if(strcmp(argv[0], "data") == 0)
+        {
+            pid=fork();
+            if(pid==0) execvp("./app/data", array);
+            else wait(NULL);
+            continue;
+        }
+
+        else if(strcmp(argv[0], "dev") == 0)
+        {
+            pid=fork();
+            if(pid==0) execlp("./app/dev", "./app/dev", array, NULL);
+            else wait(NULL);
+            continue;
+        }
+
+        else if (strcmp(argv[0], "listar") == 0)
+        {
+            pid = fork();
+            if(pid==0) execvp("./app/listar", array);
+            else wait(NULL);
+            continue;
+        }
+
+        else if (strcmp(argv[0], "local") == 0)
+        {
+            pid = fork();
+            if(pid == 0) execlp("./app/local", "./app/local", array, NULL);
+            else wait(NULL);
+            continue;
+        }
+
+        else if (strcmp(argv[0], "mudar") == 0)
+        {
+            pid = fork();
+            if(pid==0) execvp("./app/mudar", array);
+            else wait(NULL);
+            continue;
+        }
+
+        else if (strcmp(argv[0], "usuario") == 0)
+        {
+            pid = fork();
+            if(pid==0) execvp("./app/quem", array);
+            else wait(NULL);
+            continue;
+        }
+
+        else if(strcmp(argv[0], "remover") == 0)
+        {
+            pid=fork();
+            if(pid==0) execvp("./app/remover", array);
+            else wait(NULL);
+            continue;
+        }
+
+        else if(comando[0] == '.' && comando[1] == '/')
+        {
+            system(comando);
+            continue;
+        }
+
+        else printf("comando: %s nao encontrado\n", comando);
+    }
 }

@@ -19,28 +19,30 @@
     | - src/
     | - .gitignore
     | - compile.sh
+    | - comple.bat
     | - links de ajuda
     | - README.md
     | - reset.sh
 
   ### Comandos
-    * mudar   (cd)     [ ] Gabriel
-    * local   (pwd)    [ ] Julio/Marccui  
-    * apagar  (rm)     [x] Kaio
-    * criar   (mkdir)  [ ] Gabriel
-    * remover (rmdir)  [ ] Kaio
-    * copiar  (cp)     [x] Gabriel
-    * data    (date)   [ ] Julio/Marccuci
-    * sair    (exit)   [x] Gabriel
-    * listar  (ls)     [x] Gabriel
-    * dev     ( - )    [x] Gabriel
-    * arquivo (touch)  [x] Gabriel
+    * mudar   (cd)     
+    * local   (pwd)    
+    * apagar  (rm)     
+    * criar   (mkdir)  
+    * remover (rmdir) 
+    * copiar  (cp)     
+    * data    (date)   
+    * sair    (exit)   
+    * listar  (ls)     
+    * dev     ( - )    
+    * arquivo (touch)  
+    * quem    (who)    
 
 ## Desenvolvedores
  - [Gabriel Neri](https://www.linkedin.com/in/nerigabriel/)
  - [Julio Guillen]()
  - [Matheus Eduardo Marcucci]()
- - [Kaio](https://github.com/MisterKaiou)
+ - [Kaio Rauta](https://www.linkedin.com/in/kaio-rauta/)
 
 ## Como executar
  - Baixe/Clone este repositório

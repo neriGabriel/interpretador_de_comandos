@@ -1,101 +1,26 @@
 #!/usr/bin/env bash
 echo "COMPILANDO ARQUIVOS...."
 
-chmod -R 777 ./src
-chmod -R 777 ./app
+[[ -d ./app ]] && echo "DIRETORIO APP JA CRIADO" ||   mkdir ./app
 
-#= Compilando o arquivo de ajuda
-gcc ./src/ajuda.c -o ./app/ajuda
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de ajuda!"
-fi
-##################################
+./reset.sh
 
-#= Compilando o arquivo de copiar
-gcc ./src/copiar.c -o ./app/copiar
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de copiar!"
-fi
-##################################
+[[ -d ./src ]] && chmod -R 777 ./src
+[[ -d ./app ]] && chmod -R 777 ./app
 
-#= Compilando o arquivo de files
-gcc ./src/arquivo.c -o ./app/arquivo
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de files!"
-fi
-##################################
+arquivos=(ajuda apagar arquivo copiar criar data dev listar local mudar quem remover)
 
-#= Compilando o arquivo de créditos
-gcc ./src/dev.c -o ./app/dev
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de créditos!"
-fi
-##################################
+for i in "${arquivos[@]}"
+do
+  gcc ./src/$i.c -o ./app/$i
+  [[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo $i!"
+done
 
-#= Compilando o arquivo de listar
-gcc ./src/listar.c -o ./app/listar
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de listar!"
-fi
-##################################
-
-#= Compilando o arquivo de criar
-gcc ./src/criar.c -o ./app/criar
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de criar!"
-fi
-###################################
-
-
-#= Compilando o arquivo de data
-gcc ./src/data.c -o ./app/data
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de data!"
-fi
-################################
-
-#= Compilando o arquivo de local
-gcc ./src/local.c -o ./app/local
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de local!"
-fi
-#################################
-
-#= Compilando o arquivo de mudar
-gcc ./src/mudar.c -o ./app/mudar
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de mudar!"
-fi
-##################################
-
-#= Compilando o arquivo de remover
-gcc ./src/remover.c -o ./app/remover
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo de remover!"
-fi
-###################################
-
-#= Compilando o arquivo principal
-gcc ./src/shell.c -o shell
-if [ $? -eq 1 ]
-then
-    exit "Erro ao compilar o arquivo principal!"
-fi
-#####################################
+gcc ./src/shell.c -o ./shell
+[[ $? -eq 1 ]] && exit "Erro ao compilar o arquivo shell!"
 
 chmod -R 777 ./app
-echo "ARQUIVOS COMPILADOS COM SUCESSO!"
 
-echo "EXECUTANDO ARQUIVO...."
+echo -e "ARQUIVOS COMPILADOS COM SUCESSO!\nEXECUTANDO ARQUIVO..."
 clear
 ./shell

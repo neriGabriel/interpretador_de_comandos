@@ -14,20 +14,20 @@ bool is_file(const char* path){
 }
 
 int main (int argc, char * argv[]) {
+  if(argc < 3){
+    printf("copiar [arquivo] [novo arquivo]\n");
+    return 0;
+  }
 
-  char ch, caminho[256], destino[256];
+  char ch;
   FILE *ori, *dest;
 
-  printf("\e[H\e[2J");
-  printf("Entre com o nome do arquivo: ");
-  gets(caminho);
-
-  if(is_file(caminho) == false ) {
+  if(is_file(argv[1]) == false ) {
     printf("Arquivo inválido ou não encontrado.\n");
     return 0;
   }
 
-  ori = fopen(caminho, "r");
+  ori = fopen(argv[1], "r");
 
   if(ori == NULL){
     printf("Erro ao ler arquivo.\n");
@@ -35,10 +35,7 @@ int main (int argc, char * argv[]) {
 	  return 0;
   }
 
-  printf("Entre com o nome da cópia: ");
-  gets(destino);
-
-  dest = fopen(destino, "w");
+  dest = fopen(argv[2], "w");
 
   if(dest == NULL){
     printf("Erro ao copiar arquivo.\n");
@@ -48,9 +45,7 @@ int main (int argc, char * argv[]) {
 
   while( ( ch = fgetc(ori) ) != EOF )
       fputc(ch, dest);
-
-   printf("Arquivo Copiado com sucesso\n");
-
+      
    fclose(ori);
    fclose(dest);
 }

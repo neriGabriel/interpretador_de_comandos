@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#define PATH_SIZE 260
+#define TAM 255
 
 int main(int argc, char *argv[])
 {
@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 
     if (argc < 2)
     {
-        printf("remover [nome ...]\n");
+        printf("apagar [nome ...]\n");
         return 0;
     }
 
@@ -17,11 +17,11 @@ int main(int argc, char *argv[])
     {
         error = 0;
 
-        error = rmdir(argv[counter]);
+        error = remove(argv[counter]);
 
         if (error != 0)
         {
-            printf("Falha ao deletar diretório %s!\n", argv[counter]);
+            printf("Falha ao deletar arquivo %s!\n", argv[counter]);
             perror("Erro: ");
         }
     }

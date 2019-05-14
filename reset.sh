@@ -1,13 +1,21 @@
+#!/usr/bin/env bash
 chmod -R 777 ./reset.sh
 
-rm ./app/ajuda;
-rm ./app/arquivo;
-rm ./app/copiar;
-rm ./app/criar;
-rm ./app/data;
-rm ./app/listar;
-rm ./app/local;
-rm ./app/mudar;
-rm ./app/remover;
-rm ./app/dev;
-rm ./shell;
+echo -e "limpando CACHE de arquivos...";
+
+arquivos=(ajuda apagar arquivo copiar criar data dev listar local mudar quem remover)
+
+for i in "${arquivos[@]}"
+do
+  if [ -f ./app/$i ]
+  then
+    rm ./app/$i;
+  fi
+done
+
+if [ -f ./shell ]
+then
+  rm ./shell;
+fi
+
+echo -e "CACHE de arquivos limpados com sucesso!";
