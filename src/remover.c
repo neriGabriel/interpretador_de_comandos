@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
         if (error != 0)
         {
-            printf("Falha ao deletar arquivo %s!\n", argv[counter]);
+            printf("Falha ao deletar diretório %s!\n", argv[counter]);
             perror("Erro: ");
         }
     }

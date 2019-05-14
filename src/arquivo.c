@@ -3,16 +3,21 @@
 
 int main(int argc, char * argv[])
 {
+    int counter;
     if(argc < 2)
     {
         printf("arquivo [nome.<extensão>]\n");
         return 0;
     }
 
-    FILE *criarArquivo;
-    criarArquivo = fopen(argv[1], "a");
-    fclose(criarArquivo);
-    if(criarArquivo == NULL) printf("Erro ao criar arquivo!\n");
+    for (counter = 1; counter < argc; counter++)
+    {
+        printf("\n %s \n", argv[counter]);
+        FILE *criarArquivo;
+        criarArquivo = fopen(argv[counter], "a");
+        fclose(criarArquivo);
+        if(criarArquivo == NULL) printf("Erro ao criar arquivo!\n");
+    }
 
     return 0;
 }

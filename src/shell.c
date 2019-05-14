@@ -96,14 +96,19 @@ int main (int argc, char * argv[])
 
     printf("Seja bem vindo %s!\n", user);
 
+    fflush(stdin);
+
     for(;;)
     {
         printf("FATEC>");
         fgets(comando, COMANDO_SIZE, stdin);
-
-        makeTokens(comando);
+        fflush(stdin);
 
         argv[0] = strtok(comando, "");
+
+        printf("%s", comando);
+
+        makeTokens(comando);
 
         if(strcmp(argv[0], "sair") == 0)
         {
