@@ -12,11 +12,10 @@ int main(int argc, char * argv[])
 
     for (counter = 1; counter < argc; counter++)
     {
-        printf("\n %s \n", argv[counter]);
         FILE *criarArquivo;
         criarArquivo = fopen(argv[counter], "a");
         fclose(criarArquivo);
-        if(criarArquivo == NULL) printf("Erro ao criar arquivo!\n");
+        if(criarArquivo == NULL) { printf("Erro ao criar arquivo!\n"); return 0;}
     }
 
     return 0;
