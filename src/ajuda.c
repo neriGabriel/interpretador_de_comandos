@@ -8,7 +8,7 @@ int main() {
   printf("\t\t ==== arquivo = touch > Cria um arquivo, arquivo [nome.<extensão>] -------------------------------------==== \n");
   printf("\t\t ==== copiar  = cp    > Copia arquivo(s), copiar [<nomeFonte nomeDestino> <nomeFonte nomeDestino> ...] -==== \n");
   printf("\t\t ==== criar   = mkdir > Cria diretório(s) caso não existam, criar [pasta1 pasta2 ...] ------------------==== \n");
-  printf("\t\t ==== data    = date  > Mostra a data, [data] ----------------------------------------------------------==== \n");
+  printf("\t\t ==== data    = date  > Mostra a data, [data {-s, -v, -a}]  --------------------------------------------==== \n");
   printf("\t\t ==== dev     = devs  > Créditos da equipe, [dev] ------------------------------------------------------==== \n");
   printf("\t\t ==== listar  = ls    > Lista os conteúdos da pasta atual, [listar] ------------------------------------==== \n");
   printf("\t\t ==== local   = pwd   > Exibe o diretório atual, [local] -----------------------------------------------==== \n");
