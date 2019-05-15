@@ -106,6 +106,11 @@ int main (int argc, char * argv[])
         //===============================
 
         makeTokens(comando);
+	if(array[0] == NULL) 
+	{
+	  printf("digite um comando valido!\n");
+	  continue;
+	}
 
         argv[0] = strtok(comando, "");
 
@@ -218,6 +223,7 @@ int main (int argc, char * argv[])
         {
             system(comando);
             continue;
+	    
         }
 
         else printf("comando: %s nao encontrado\n", comando);
